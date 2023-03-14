@@ -9,8 +9,7 @@ import {
   StyleSheet,
   Font,
 } from '@react-pdf/renderer';
-import { useRouter } from 'next/router';
-import { useState, useEffect, createContext, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { PDfContext } from './_app';
 
 Font.register({ family: 'Inter', src: '/Inter/Inter.ttf' });
@@ -22,8 +21,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
   },
 });
-
-const userContext = createContext(null);
 
 const PDF = ({ templateData }: { templateData: any }) => {
   return (
@@ -51,14 +48,10 @@ const PDF = ({ templateData }: { templateData: any }) => {
     </>
   );
 };
+
 const PDFView = () => {
   const [client, setClient] = useState(false);
-  const [userState, setUserState] = useState('');
-  const templateContext = useContext(PDfContext)
-
-  useEffect(() => {
-    setUserState('Ping user one');
-  }, []);
+  const templateContext = useContext(PDfContext);
 
   useEffect(() => {
     setClient(true);

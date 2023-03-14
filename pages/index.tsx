@@ -26,7 +26,9 @@ const Home: NextPage = () => {
       formField.pesel
     } is signing a legally binding document with ${inputs.map(
       (signee) => ` ${signee.value} Pesel: ${signee.pesel}`
-    )}`
+    )}
+      Company Pesel: ${formField?.company_pesel}
+    `
   );
 
   const addInput = () => {
@@ -47,7 +49,9 @@ const Home: NextPage = () => {
       `${formField.name} ${
         formField.pesel
       } is signing a legally binding document with ${inputs.map(
-        (signee) => ` ${signee.value} Pesel: ${signee.pesel}`
+        (signee) => ` ${signee.value} Pesel: ${signee.pesel}
+        Company Pesel: ${formField?.company_pesel}
+        `
       )}`
     );
   }, [formField, inputs]);
@@ -154,8 +158,11 @@ const Home: NextPage = () => {
               ${formField.name} ${
             formField.pesel
           } is signing a legally binding document with ${inputs.map(
-            (signee) => ` ${signee.value} Pesel: ${signee.pesel}`
+            (signee) => ` ${signee.value} Pesel: ${signee.pesel}
+            `
           )}
+
+            Company Pesel: ${formField?.company_pesel}
             `}
         </article>
         <Link
